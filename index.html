@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Sensor Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 25px;
+      font-family: Arial, sans-serif;
+      background: #101827;
+      color: white;
+    }
+    h1 { color: #62d9ff; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #202d42;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid #35465f;
+    }
+    .value {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    button {
+      background: #12b8d6;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    footer { color: #aab7ca; margin-top: 25px; }
+  </style>
+</head>
+<body>
+  <h1>Smart Sensor Dashboard</h1>
+  <p>Monitor your industrial sensor readings</p>
+
+  <div class="cards">
+    <div class="card">
+      Temperature
+      <div class="value" id="temp">28 °C</div>
+      <span>Simulated sensor</span>
+    </div>
+    <div class="card">
+      Humidity
+      <div class="value" id="humidity">55 %</div>
+      <span>Simulated sensor</span>
+    </div>
+    <div class="card">
+      Voltage
+      <div class="value" id="voltage">12.0 V</div>
+      <span>Simulated sensor</span>
+    </div>
+  </div>
+
+  <button onclick="refreshReadings()">
+    Refresh Readings
+  </button>
+
+  <p id="status">Status: Demo mode</p>
+  <footer>
+    Built by Ashish Kumar Bhambhi | ECE Project
+  </footer>
+
+  <script>
+    function refreshReadings() {
+      const temp = (20 + Math.random() * 20).toFixed(1);
+      const humidity = Math.round(30 + Math.random() * 50);
+      const voltage = (10 + Math.random() * 5).toFixed(1);
+
+      document.getElementById("temp").textContent = temp + " °C";
+      document.getElementById("humidity").textContent =
+        humidity + " %";
+      document.getElementById("voltage").textContent =
+        voltage + " V";
+
+      document.getElementById("status").textContent =
+        "Status: Demo readings updated successfully";
+    }
+  </script>
+</body>
+</html>
